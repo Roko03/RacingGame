@@ -78,3 +78,16 @@ crashlytics-build.properties
 # RoadArchitect
 Assets/RoadArchitect/
 Assets/RoadArchitect.meta
+
+# Polytope Studio
+Assets/Polytope Studio/
+Assets/Polytope Studio.meta
+
+# Ezereal Assets
+Assets/Ezereal Assets/
+Assets/Ezereal Assets.meta
+
+# TextMesh Pro
+Assets/TextMesh Pro/
+Assets/TextMesh Pro.meta
+
