@@ -18,6 +18,10 @@ public class LapComplete : MonoBehaviour
         SecondDisplay.text = LapTimeManager.SecondCount.ToString("00") + ".";
         MilliDisplay.text = LapTimeManager.MilliCount.ToString("0");
 
+        PlayerPrefs.SetInt("MinSave", LapTimeManager.MinuteCount);
+        PlayerPrefs.SetInt("SecSave", LapTimeManager.SecondCount);
+        PlayerPrefs.SetFloat("MiliSave", LapTimeManager.MilliCount);
+
         LapTimeManager.MinuteCount = 0;
         LapTimeManager.SecondCount = 0;
         LapTimeManager.MilliCount = 0;
