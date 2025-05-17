@@ -10,11 +10,13 @@ public class Countdown : MonoBehaviour
     public AudioSource GoAudio;
     public GameObject LapTimer;
     public GameObject CarControls;
+    public MonoBehaviour aiControlScript;
 
 
     void Start()
     {
-        CarControls.SetActive(false); 
+        CarControls.SetActive(false);
+        aiControlScript.enabled = false;
         StartCoroutine(CountStart());
     }
 
@@ -43,5 +45,6 @@ public class Countdown : MonoBehaviour
         GoAudio.Play();
         LapTimer.SetActive(true);
         CarControls.SetActive(true);
+        aiControlScript.enabled = true;
     }
 }
