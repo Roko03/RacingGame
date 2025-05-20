@@ -17,6 +17,7 @@ public class Countdown : MonoBehaviour
     void Start()
     {
         CarControls.SetActive(false);
+        LapTimer.SetActive(false);
         AIControlScript.enabled = false;
         StartCoroutine(CountStart());
     }

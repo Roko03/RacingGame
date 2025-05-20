@@ -12,9 +12,21 @@ public class LapTimeManager : MonoBehaviour
     public TMP_Text SecondBox;
     public TMP_Text MilliBox;
 
+    public static float RawTime;
+
+    public static bool isTiming = true;
+
+    void Start()
+    {
+        isTiming = true; 
+    }
+
     void Update()
     {
+        if (!isTiming) return; 
+
         MilliCount += Time.deltaTime * 10;
+        RawTime += Time.deltaTime;
         MilliDisplay = MilliCount.ToString("F0");
         MilliBox.text = MilliDisplay;
 
@@ -30,7 +42,7 @@ public class LapTimeManager : MonoBehaviour
         }
         else
         {
-            SecondBox.text = "" + SecondCount + ".";
+            SecondBox.text = SecondCount + ".";
         }
 
         if (SecondCount >= 60)
@@ -45,7 +57,7 @@ public class LapTimeManager : MonoBehaviour
         }
         else
         {
-            MinuteBox.text = "" + MinuteCount + ":";
+            MinuteBox.text = MinuteCount + ":";
         }
     }
 }
