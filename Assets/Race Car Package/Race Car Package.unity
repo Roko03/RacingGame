@@ -5399,7 +5399,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &971207031
+--- !u!114 &971207032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5413,20 +5413,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thirdPersonCam: {fileID: 998606398}
   hoodCam: {fileID: 1368146436}
---- !u!114 &971207032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 971207024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1a4d933bced0d1409a060c347a3bbcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thirdPersonCam: {fileID: 0}
-  hoodCam: {fileID: 0}
 --- !u!1 &998606397
 GameObject:
   m_ObjectHideFlags: 0
@@ -5665,8 +5651,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337149963}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000008800916, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 10.04, y: 2.6399999, z: 19.73}
+  m_LocalRotation: {x: 0, y: 0.9961947, z: -0.08715578, w: 0}
+  m_LocalPosition: {x: 9.99, y: 2.1100001, z: 11.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5923,9 +5909,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1740865480142414, guid: 663342408c5e6e24f8e0cb584631c6ad, type: 3}
       insertIndex: -1
       addedObject: {fileID: 971207032}
-    - targetCorrespondingSourceObject: {fileID: 1740865480142414, guid: 663342408c5e6e24f8e0cb584631c6ad, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 971207031}
   m_SourcePrefab: {fileID: 100100000, guid: 663342408c5e6e24f8e0cb584631c6ad, type: 3}
 --- !u!1 &1620837020
 GameObject:
