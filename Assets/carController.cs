@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +30,7 @@ public class CarController : MonoBehaviour
         HandleMotor();
         HandleSteering();
         UpdateWheels();
+        AddDownforce();
     }
 
     private void GetInput()
@@ -72,7 +73,12 @@ public class CarController : MonoBehaviour
 
     private void HandleSteering()
     {
-        currentSteerAngle = maxSteerAngle * horizontalInput;
+        float speed = GetComponent<Rigidbody>().linearVelocity.magnitude;
+        float speedFactor = Mathf.Clamp01(1 - (speed / 50f)); // prilagodi 50 prema potrebi
+        float adjustedSteerAngle = maxSteerAngle * speedFactor;
+
+
+        currentSteerAngle = adjustedSteerAngle * horizontalInput;
         frontLeftWheelCollider.steerAngle = currentSteerAngle;
         frontRightWheelCollider.steerAngle = currentSteerAngle;
     }
@@ -93,4 +99,11 @@ public class CarController : MonoBehaviour
         wheelTransform.rotation = rot;
         wheelTransform.position = pos;
     }
+
+    private void AddDownforce()
+    {
+        float downforce = GetComponent<Rigidbody>().linearVelocity.magnitude * 100f; // isprobaj između 50f – 300f
+        GetComponent<Rigidbody>().AddForce(-transform.up * downforce);
+    }
+
 }
