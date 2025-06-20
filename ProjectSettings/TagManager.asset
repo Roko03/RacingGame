@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - CarAITag
+  - Track
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Road
   - Water
   - UI
   - 
