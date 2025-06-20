@@ -8,11 +8,14 @@ public class HalfPointTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
+        Debug.Log("carAI prošao kroz HalfPointTrigger!");
 
-        LapCompleteTrig.SetActive(true);
-        HalfLapTrig.SetActive(false);
-
-        lapCompleteScript.AllowLapCompletion();
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player prošao kroz HalfPointTrigger!");
+            LapCompleteTrig.SetActive(true);
+            HalfLapTrig.SetActive(false);
+            lapCompleteScript.AllowLapCompletion();
+        }
     }
 }
