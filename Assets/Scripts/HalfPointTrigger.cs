@@ -8,8 +8,6 @@ public class HalfPointTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("carAI prošao kroz HalfPointTrigger!");
-
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player prošao kroz HalfPointTrigger!");
