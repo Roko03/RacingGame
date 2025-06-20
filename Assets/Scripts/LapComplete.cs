@@ -11,9 +11,6 @@ public class LapComplete : MonoBehaviour
     public TMP_Text MilliDisplay;
     public TMP_Text LapCounter;
 
-    public GameObject CarControls;
-    public MonoBehaviour AIControlScript;
-
     private int lapsDone = 0;
     private bool canLap = false;
 
@@ -98,8 +95,6 @@ public class LapComplete : MonoBehaviour
         HalfLapTrig.SetActive(false);
 
         LapTimeManager.isTiming = false;
-        CarControls.SetActive(false);
-        AIControlScript.enabled = false;
 
         Debug.Log("Race Finished!");
     }

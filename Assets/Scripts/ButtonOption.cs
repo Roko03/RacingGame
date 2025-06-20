@@ -3,10 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class ButtonOption : MonoBehaviour
 {
-    public void PlayGame()
-    {
-        SceneManager.LoadScene(2);
-    }
 
     public void TrackSelect()
     {
@@ -21,5 +17,15 @@ public class ButtonOption : MonoBehaviour
     public void Track01()
     {
         SceneManager.LoadScene(2);
+    }
+
+    public void Track02()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void Track03()
+    {
+        SceneManager.LoadScene(4);
     }
 }
