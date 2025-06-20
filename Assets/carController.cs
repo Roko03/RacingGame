@@ -9,20 +9,25 @@ public class CarController : MonoBehaviour
     private float currentSteerAngle, currentbreakForce;
     private bool isBreaking;
 
-    // Settings
-    [SerializeField] private float motorForce, breakForce, maxSteerAngle;
+    [SerializeField] private float motorForce = 1500f;
+    [SerializeField] private float breakForce = 3000f;
+    [SerializeField] private float maxSteerAngle = 30f;
+    [SerializeField] private float downforce = 100f;
 
-    // Wheel Colliders
     [SerializeField] private WheelCollider frontLeftWheelCollider, frontRightWheelCollider;
     [SerializeField] private WheelCollider rearLeftWheelCollider, rearRightWheelCollider;
 
-    // Wheels
     [SerializeField] private Transform frontLeftWheelTransform, frontRightWheelTransform;
     [SerializeField] private Transform rearLeftWheelTransform, rearRightWheelTransform;
 
-
     public ParticleSystem exhaustSmoke;
 
+    private Rigidbody rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     private void FixedUpdate()
     {
@@ -30,36 +35,36 @@ public class CarController : MonoBehaviour
         HandleMotor();
         HandleSteering();
         UpdateWheels();
+        ApplyDownforce();
     }
 
     private void GetInput()
     {
-        // Steering Input
         horizontalInput = Input.GetAxis("Horizontal");
-
-        // Acceleration Input
         verticalInput = Input.GetAxis("Vertical");
-
-        // Breaking Input
         isBreaking = Input.GetKey(KeyCode.Space);
     }
 
     private void HandleMotor()
     {
-        frontLeftWheelCollider.motorTorque = -verticalInput * motorForce;
-        frontRightWheelCollider.motorTorque = -verticalInput * motorForce;
-        currentbreakForce = isBreaking ? breakForce : 0f;
+        float motorTorque = verticalInput * motorForce;
+
+        frontLeftWheelCollider.motorTorque = motorTorque;
+        frontRightWheelCollider.motorTorque = motorTorque;
+
+        bool downhillFreeRoll = verticalInput == 0f && rb.linearVelocity.y < -0.5f;
+
+        currentbreakForce = isBreaking || downhillFreeRoll ? breakForce : 0f;
         ApplyBreaking();
 
-        if (verticalInput > 0.1f && !exhaustSmoke.isPlaying)
+        if (horizontalInput > 0.1f && !exhaustSmoke.isPlaying)
         {
             exhaustSmoke.Play();
         }
-        else if (verticalInput <= 0.1f && exhaustSmoke.isPlaying)
+        else if (horizontalInput <= 0.1f && exhaustSmoke.isPlaying)
         {
             exhaustSmoke.Stop();
         }
-
     }
 
     private void ApplyBreaking()
@@ -92,5 +97,11 @@ public class CarController : MonoBehaviour
         wheelCollider.GetWorldPose(out pos, out rot);
         wheelTransform.rotation = rot;
         wheelTransform.position = pos;
+    }
+
+    private void ApplyDownforce()
+    {
+        float speed = rb.linearVelocity.magnitude;
+        rb.AddForce(-transform.up * downforce * speed);
     }
 }

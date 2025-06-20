@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class LapComplete : MonoBehaviour
 {
+    public int maxLaps = 3;
     public GameObject LapCompleteTrig;
     public GameObject HalfLapTrig;
 
@@ -14,7 +15,6 @@ public class LapComplete : MonoBehaviour
     private int lapsDone = 0;
     private bool canLap = false;
 
-    private const int MaxLaps = 3;
     private const string RawTimeKey = "RawTime";
     private const string MinKey = "MinSave";
     private const string SecKey = "SecSave";
@@ -50,7 +50,7 @@ public class LapComplete : MonoBehaviour
 
         ResetLapTimer();
 
-        if (lapsDone >= MaxLaps)
+        if (lapsDone >= maxLaps)
         {
             EndRace();
             return;
