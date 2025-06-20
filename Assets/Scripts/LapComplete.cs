@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class LapComplete : MonoBehaviour
 {
     public GameObject LapCompleteTrig;
@@ -95,6 +95,8 @@ public class LapComplete : MonoBehaviour
         HalfLapTrig.SetActive(false);
 
         LapTimeManager.isTiming = false;
+
+        SceneManager.LoadScene(5);
 
         Debug.Log("Race Finished!");
     }

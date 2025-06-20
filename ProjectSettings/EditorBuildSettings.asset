@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CircuitDakar.unity
     guid: 1902612117cb07d49a1bfc7f78460a73
+  - enabled: 1
+    path: Assets/Scenes/ScoreScene.unity
+    guid: b8547e2e6251ac1499d9241e38886d18
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

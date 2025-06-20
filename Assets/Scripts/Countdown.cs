@@ -13,9 +13,9 @@ public class Countdown : MonoBehaviour
     public AudioSource LevelMusic;
 
     [Header("Cars & AI")]
-    public MonoBehaviour[] carControllers; // Your player car controllers
-    public CarAIMesh[] aiCarScripts; // AI scripts
-    public UnityEngine.AI.NavMeshAgent[] aiNavMeshAgents; // Add this for AI navigation
+    public MonoBehaviour[] carControllers; 
+    public CarAIMesh[] aiCarScripts; 
+    public UnityEngine.AI.NavMeshAgent[] aiNavMeshAgents;
 
     void Start()
     {
@@ -26,14 +26,12 @@ public class Countdown : MonoBehaviour
 
     void DisableCarsAndAI()
     {
-        // Disable car controllers
         foreach (MonoBehaviour carController in carControllers)
         {
             if (carController != null)
                 carController.enabled = false;
         }
 
-        // Disable AI car scripts and navigation
         foreach (CarAIMesh aiScript in aiCarScripts)
         {
             if (aiScript != null)
@@ -49,14 +47,12 @@ public class Countdown : MonoBehaviour
 
     void EnableCarsAndAI()
     {
-        // Enable car controllers
         foreach (MonoBehaviour carController in carControllers)
         {
             if (carController != null)
                 carController.enabled = true;
         }
 
-        // Enable AI car scripts and navigation
         foreach (CarAIMesh aiScript in aiCarScripts)
         {
             if (aiScript != null)

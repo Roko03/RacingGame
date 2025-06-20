@@ -110,7 +110,6 @@ public class CarAIMesh : MonoBehaviour
 
     int ExtractNumberFromName(string name)
     {
-        // Izvuci broj iz naziva (npr. "Node5" -> 5)
         string numberStr = "";
         foreach (char c in name)
         {
